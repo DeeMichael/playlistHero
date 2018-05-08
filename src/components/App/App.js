@@ -14,7 +14,7 @@ class App extends React.Component {
     super(props);
 
     this.state = { searchResults : [],
-                   playlistName  : 'My Playlist',
+                   playlistName  : 'My New Playlist',
                    playlistTracks: []
                  };
 
@@ -26,11 +26,9 @@ class App extends React.Component {
   }
 
   addTrack(track){
-    if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
-      return;
-    } else {
-      this.setState({ playlistTracks: [...this.state.playlistTracks, track] });
-    }
+      if (!this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+        this.setState({ playlistTracks: [...this.state.playlistTracks, track] });
+      }
   }
 
   removeTrack(track) {
